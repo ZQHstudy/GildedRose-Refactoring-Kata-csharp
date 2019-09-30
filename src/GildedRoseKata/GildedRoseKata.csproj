@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Model\Updaters\AgedBrieUpdater.cs" />
     <Compile Include="Model\Updaters\BackstagePassesUpdater.cs" />
+    <Compile Include="Model\Updaters\ConjuredUpdater.cs" />
     <Compile Include="Model\Updaters\DefaultUpdater.cs" />
     <Compile Include="GildedRose.cs" />
     <Compile Include="Model\Item.cs" />

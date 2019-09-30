@@ -11,6 +11,7 @@ namespace GildedRoseKata
             { Items.AgedBrie, new AgedBrieUpdater() },
             { Items.BackstagePasses, new BackstagePassesUpdater() },
             { Items.Sulfuras, new SulfurasUpdater() },
+            { Items.Conjured, new ConjuredUpdater() },
         };
 
         private static readonly DefaultUpdater DefaultUpdater = new DefaultUpdater();

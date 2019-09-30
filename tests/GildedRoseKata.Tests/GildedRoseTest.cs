@@ -94,6 +94,19 @@ namespace GildedRoseKata.Tests
         [TestCase("foo", 1, 52, ExpectedResult = 51, TestName = "Regular Item(sellIn=1, quality=52): quality more than max quality should degrade normally")]
         [TestCase("foo", 0, 52, ExpectedResult = 50, TestName = "Regular Item(sellIn=0, quality=52): quality more than max quality should degrade normally")]
         [TestCase("foo", 0, 51, ExpectedResult = 49, TestName = "Regular Item(sellIn=0, quality=51): quality more than max quality should degrade normally")]
+
+        [TestCase(Items.Conjured, 1, 10, ExpectedResult = 8, TestName = "Conjured(sellIn=1, quality=10): sellIn > 0 then quality should degrade by 2")]
+        [TestCase(Items.Conjured, 0, 10, ExpectedResult = 6, TestName = "Conjured(sellIn=0, quality=10): sellIn <= 0 then quality should degrade by 4")]
+        [TestCase(Items.Conjured, -1, 10, ExpectedResult = 6, TestName = "Conjured(sellIn=-1, quality=10): sellIn <= 0 then quality should degrade by 4")]
+        [TestCase(Items.Conjured, 0, 0, ExpectedResult = 0, TestName = "Conjured(sellIn=0, quality=0): quality can't degrade below zero")]
+        [TestCase(Items.Conjured, 0, 1, ExpectedResult = 0, TestName = "Conjured(sellIn=0, quality=1): quality can't degrade below zero")]
+        [TestCase(Items.Conjured, 1, 0, ExpectedResult = 0, TestName = "Conjured(sellIn=1, quality=0): quality can't degrade below zero")]
+        [TestCase(Items.Conjured, -1, -1, ExpectedResult = -1, TestName = "Conjured(sellIn=-1, quality=-1): quality below zero should be the same after update")]
+        [TestCase(Items.Conjured, 0, -1, ExpectedResult = -1, TestName = "Conjured(sellIn=0, quality=-1): quality below zero should be the same after update")]
+        [TestCase(Items.Conjured, 1, -1, ExpectedResult = -1, TestName = "Conjured(sellIn=1, quality=-1): quality below zero should be the same after update")]
+        [TestCase(Items.Conjured, 1, 52, ExpectedResult = 50, TestName = "Conjured(sellIn=1, quality=52): quality more than max quality should degrade normally")]
+        [TestCase(Items.Conjured, 0, 52, ExpectedResult = 48, TestName = "Conjured(sellIn=0, quality=52): quality more than max quality should degrade normally")]
+        [TestCase(Items.Conjured, 0, 51, ExpectedResult = 47, TestName = "Conjured(sellIn=0, quality=51): quality more than max quality should degrade normally")]
         public int UpdateQuality_Item_QualityShouldBeChangedProperly(string itemName, int sellIn, int initialQuality)
         {
             var items = new List<Item> { new Item { Name = itemName, SellIn = sellIn, Quality = initialQuality } };
