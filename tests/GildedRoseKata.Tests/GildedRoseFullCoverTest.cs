@@ -14,7 +14,7 @@ namespace GildedRoseKata.Tests
         [TestCase(Items.Dexterity)]
         [TestCase(Items.Elixir)]
         [TestCase("foo")]
-        public void UpdateQuality_RegularItem_QualityShouldBeDecreased(string itemName)
+        public void UpdateQuality_RegularItem_FullCover(string itemName)
         {
             FullCover(itemName, item =>
             {
@@ -33,7 +33,7 @@ namespace GildedRoseKata.Tests
         }
 
         [Test]
-        public void UpdateQuality_AgedBrie_QualityShouldBeDecreased()
+        public void UpdateQuality_AgedBrie_FullCover()
         {
             FullCover(Items.AgedBrie, item =>
             {
@@ -51,13 +51,13 @@ namespace GildedRoseKata.Tests
         }
 
         [Test]
-        public void UpdateQuality_Sulfuras_QualityShouldBeDecreased()
+        public void UpdateQuality_Sulfuras_FullCover()
         {
             FullCover(Items.Sulfuras, item => new Item { Name = Items.Sulfuras, SellIn = item.SellIn, Quality = item.Quality });
         }
 
         [Test]
-        public void UpdateQuality_BackstagePasses_ItemShouldBeUpdatedProperly()
+        public void UpdateQuality_BackstagePasses_FullCover()
         {
             FullCover(Items.BackstagePasses, item =>
             {
