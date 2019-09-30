@@ -2,11 +2,22 @@
 
 My solution for of [Gilded Rose Refactoring Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 
-Prerequisites:
- - Net Framework 4.5.2
+Prerequisites for build:
+   - [Net Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452)
+   - [nuget.exe] (https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)
+   Or
+   - Visual Studio 2019
+   
+Build from console:
+ 1. open console in the solution directory
+ 2. ```nuget restore GildedRoseKata.sln``` path to nuget.exe should be system known
+ 3. ```MSBuild.exe GildedRoseKata.sln``` path to MSBuild.exe should be system known
  
-Build:
- - ```MSBuild.exe GildedRoseKata.sln``` path to MSBuild.exe should be known
+Build from VS2019:
+ 1. Open solution in VS and build rebuild solution
+
+Run program:
+ 1. After successfull buil, run ```.\src\GildedRoseKata\bin\Debug\GildedRoseKata.exe```
 
 Steps how it was done:
  1. Current implementation of Update method was covered with unit tests. The values for border edges was defined from the specification.
