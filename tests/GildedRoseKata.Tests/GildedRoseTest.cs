@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
-namespace csharp
+namespace GildedRoseKata.Tests
 {
     [TestFixture]
     public class GildedRoseTest
