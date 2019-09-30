@@ -36,7 +36,8 @@ Run program:
  7. After refactoring of Update logic (and fixing all broken tests) I was able to add tests for new [Conjured item type](https://github.com/meshcheryakov83/GildedRose-Refactoring-Kata-csharp/blob/master/src/GildedRoseKata/Model/Item.cs#L10)
  8. After the tests were ready I was able to add this new item itself. Here I required to change the approved text from text test to keep proper values of Conjured quality and sellIn.
 
-[![BCH compliance](https://bettercodehub.com/edge/badge/meshcheryakov83/GildedRose-Refactoring-Kata-csharp?branch=master)](https://bettercodehub.com/)
-
 ## Assumptions
 I assumed that production ready refactoring of GildedRose class (like make it DI ready, and add DI, even may be add some kind of DB) is out of scope for this task. So the main aim was to refactor update logic and make code simple and readable. 
+
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/meshcheryakov83/GildedRose-Refactoring-Kata-csharp?branch=master)](https://bettercodehub.com/)
