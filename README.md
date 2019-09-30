@@ -2,6 +2,7 @@
 
 My solution for of [Gilded Rose Refactoring Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 
+## BUILD AND RUN
 Prerequisites for build from console:
    - [Net Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452)
    - [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)
@@ -21,7 +22,7 @@ Build from VS2019:
 Run program:
  1. After successfull buil, run ```.\src\GildedRoseKata\bin\Debug\GildedRoseKata.exe```
 
-Steps how it was done:
+## Steps how it was done:
  1. Current implementation of Update method was covered with unit tests. The values for border edges was defined from the specification.
  2. Since this is crucial requirement to do not break anything, I decided to cover all possible values of sellIn and quality with tests. Those tests are some kind like text test, but doesn't depend on output. With this tests I tried to implement logic from requirements to predict the output values.
  3. After full cover was implemented, I was able safly refactor Update method.
