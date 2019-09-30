@@ -8,34 +8,34 @@
         public void Update(Item item)
         {
             var nextQualityValue = GetNextQuality(item);
-
-            // if current quality less than min, then do not allow it to be decreased even more
-            if (item.Quality < MinQuality && nextQualityValue < item.Quality)
-            {
-                nextQualityValue = item.Quality;
-            }
-
-            // if current quality more than min, then next value should not be less than min
-            if (item.Quality >= MinQuality && nextQualityValue < MinQuality)
-            {
-                nextQualityValue = MinQuality;
-            }
-
-            // if current quality less than max, then next value should not be more than max
-            if (item.Quality <= MaxQuality && nextQualityValue > MaxQuality)
-            {
-                nextQualityValue = MaxQuality;
-            }
-
-            // if current quality more than max, then next value should not be increased even more
-            if (item.Quality > MaxQuality && item.Quality < nextQualityValue)
-            {
-                nextQualityValue = item.Quality;
-            }
+            nextQualityValue = IfInitialQualityLessThanMinThenDoNotDecreaseQualityEvenMore(item.Quality, nextQualityValue);
+            nextQualityValue = IfInitialQualityMoreThanMinThenDoNotDecreaseQualityLessThanMin(item.Quality, nextQualityValue);
+            nextQualityValue = IfInitialQualityLessThanMaxThenDoNotIncreaseQualityMoreThanMax(item.Quality, nextQualityValue);
+            nextQualityValue = IfInitialQualityMoreThanMaxThenDoNotIncreaseQualityEvenMore(item.Quality, nextQualityValue);
 
             item.Quality = nextQualityValue;
             item.SellIn--;
         }
+
+        private int IfInitialQualityLessThanMinThenDoNotDecreaseQualityEvenMore(int initialQuality, int nextQuality) =>
+            initialQuality < MinQuality && nextQuality < initialQuality
+                ? initialQuality
+                : nextQuality;
+
+        private int IfInitialQualityMoreThanMinThenDoNotDecreaseQualityLessThanMin (int initialQuality, int nextQuality) =>
+            initialQuality >= MinQuality && nextQuality < MinQuality
+                ? MinQuality
+                : nextQuality;
+
+        private int IfInitialQualityLessThanMaxThenDoNotIncreaseQualityMoreThanMax(int initialQuality, int nextQuality) =>
+            initialQuality <= MaxQuality && nextQuality > MaxQuality
+                ? MaxQuality
+                : nextQuality;
+
+        private int IfInitialQualityMoreThanMaxThenDoNotIncreaseQualityEvenMore(int initialQuality, int nextQuality) =>
+            initialQuality > MaxQuality && initialQuality < nextQuality
+                ? initialQuality
+                : nextQuality;
 
         protected virtual int GetNextQuality(Item item)
         {
