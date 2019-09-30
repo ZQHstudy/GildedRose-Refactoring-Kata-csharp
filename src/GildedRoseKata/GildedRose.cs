@@ -1,93 +1,50 @@
 ﻿using System.Collections.Generic;
+using GildedRoseKata.Model;
+using GildedRoseKata.Model.Updaters;
 
 namespace GildedRoseKata
 {
     public class GildedRose
     {
-        /// <summary>
-        /// Itmes for manipulation with. Do not rename as asked Goblin
-        /// </summary>
-        IList<Item> Items;
+        private static readonly Dictionary<string, IUpdater> SpecialUpdaters = new Dictionary<string, IUpdater>
+        {
+            { Items.AgedBrie, new AgedBrieUpdater() },
+            { Items.BackstagePasses, new BackstagePassesUpdater() },
+            { Items.Sulfuras, new SulfurasUpdater() },
+        };
 
+        private static readonly DefaultUpdater DefaultUpdater = new DefaultUpdater();
+
+        /// <summary>
+        /// Items to manipulate them.
+        /// </summary>
+        private readonly IList<Item> _items;
+
+        /// <summary>
+        /// Ctor accepts items to manipulate with
+        /// </summary>
+        /// <param name="items">Items to manipulate with</param>
         public GildedRose(IList<Item> items)
         {
-            Items = items;
+            _items = items;
         }
 
+        /// <summary>
+        /// Updates all stored items
+        /// </summary>
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in _items)
             {
-                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
-                }
-                else
-                {
-                    if (Items[i].Quality < 50)
-                    {
-                        Items[i].Quality = Items[i].Quality + 1;
-
-                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
-
-                if (Items[i].SellIn < 0)
-                {
-                    if (Items[i].Name != "Aged Brie")
-                    {
-                        if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].Quality > 0)
-                            {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
-                    }
-                }
+                GetUpdater(item.Name).Update(item);
             }
+        }
+
+        private IUpdater GetUpdater(string itemName)
+        {
+            return SpecialUpdaters.ContainsKey(itemName)
+                ? SpecialUpdaters[itemName]
+                : DefaultUpdater;
         }
     }
 }

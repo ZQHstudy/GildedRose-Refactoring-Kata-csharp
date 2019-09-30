@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GildedRoseKata.Model;
 using NUnit.Framework;
 
 namespace GildedRoseKata.Tests
