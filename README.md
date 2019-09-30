@@ -2,10 +2,12 @@
 
 My solution for of [Gilded Rose Refactoring Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 
-Prerequisites for build:
+Prerequisites for build from console:
    - [Net Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452)
-   - [nuget.exe] (https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)
-   Or
+   - [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe)
+   
+Prerequisites for build from VS:
+   - [Net Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452)
    - Visual Studio 2019
    
 Build from console:
