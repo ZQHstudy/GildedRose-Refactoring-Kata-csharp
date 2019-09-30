@@ -8,7 +8,7 @@ Prerequisites for build from console:
    
 Prerequisites for build from VS:
    - [Net Framework 4.5.2](https://dotnet.microsoft.com/download/dotnet-framework/net452)
-   - Visual Studio 2019
+   - [Visual Studio 2019](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16)
    
 Build from console:
  1. open console in the solution directory
