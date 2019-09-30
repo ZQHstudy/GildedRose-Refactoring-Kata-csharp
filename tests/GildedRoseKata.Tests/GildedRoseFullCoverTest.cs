@@ -85,7 +85,7 @@ namespace GildedRoseKata.Tests
             });
         }
 
-        private void FullCover(string itemName, Func<Item, Item> calcExpectedItem)
+        private static void FullCover(string itemName, Func<Item, Item> calcExpectedItem)
         {
             for (var sellIn = -100; sellIn < 100; sellIn++)
             {
