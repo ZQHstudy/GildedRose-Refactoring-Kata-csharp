@@ -8,18 +8,20 @@ namespace GildedRoseKata
     {
         private static readonly Dictionary<string, IUpdater> SpecialUpdaters = new Dictionary<string, IUpdater>
         {
-            { Items.AgedBrie, new AgedBrieUpdater() },
-            { Items.BackstagePasses, new BackstagePassesUpdater() },
-            { Items.Sulfuras, new SulfurasUpdater() },
-            { Items.Conjured, new ConjuredUpdater() },
+            { Item.AgedBrie, new AgedBrieUpdater() },
+            { Item.BackstagePasses, new BackstagePassesUpdater() },
+            { Item.Sulfuras, new SulfurasUpdater() },
+            { Item.Conjured, new ConjuredUpdater() },
         };
 
         private static readonly DefaultUpdater DefaultUpdater = new DefaultUpdater();
 
-        /// <summary>
-        /// Items to manipulate them.
-        /// </summary>
-        private readonly IList<Item> _items;
+        ///// <summary>
+        ///// Items to manipulate them.
+        ///// </summary>
+        //private readonly IList<Item> _items;
+
+        public IList<Item> Items { get; }
 
         /// <summary>
         /// Ctor accepts items to manipulate with
@@ -27,7 +29,7 @@ namespace GildedRoseKata
         /// <param name="items">Items to manipulate with</param>
         public GildedRose(IList<Item> items)
         {
-            _items = items;
+            Items = items;
         }
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace GildedRoseKata
         /// </summary>
         public void UpdateQuality()
         {
-            foreach (var item in _items)
+            foreach (var item in Items)
             {
                 GetUpdater(item.Name).Update(item);
             }

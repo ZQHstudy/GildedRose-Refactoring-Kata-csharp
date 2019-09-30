@@ -51,7 +51,6 @@
     <Compile Include="Model\Updaters\DefaultUpdater.cs" />
     <Compile Include="GildedRose.cs" />
     <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\Items.cs" />
     <Compile Include="Model\Updaters\IUpdater.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,8 +12,8 @@ namespace GildedRoseKata.Tests
     [TestFixture]
     public class GildedRoseFullCoverTest
     {
-        [TestCase(Items.Dexterity)]
-        [TestCase(Items.Elixir)]
+        [TestCase(Item.Dexterity)]
+        [TestCase(Item.Elixir)]
         [TestCase("foo")]
         public void UpdateQuality_RegularItem_FullCover(string itemName)
         {
@@ -36,7 +36,7 @@ namespace GildedRoseKata.Tests
         [Test]
         public void UpdateQuality_AgedBrie_FullCover()
         {
-            FullCover(Items.AgedBrie, item =>
+            FullCover(Item.AgedBrie, item =>
             {
                 var expectedQuality = item.Quality;
                 if (item.Quality < 50)
@@ -47,20 +47,20 @@ namespace GildedRoseKata.Tests
                     expectedQuality = expectedQuality > 50 ? 50 : expectedQuality;
                 }
 
-                return new Item { Name = Items.AgedBrie, SellIn = item.SellIn - 1, Quality = expectedQuality };
+                return new Item { Name = Item.AgedBrie, SellIn = item.SellIn - 1, Quality = expectedQuality };
             });
         }
 
         [Test]
         public void UpdateQuality_Sulfuras_FullCover()
         {
-            FullCover(Items.Sulfuras, item => new Item { Name = Items.Sulfuras, SellIn = item.SellIn, Quality = item.Quality });
+            FullCover(Item.Sulfuras, item => new Item { Name = Item.Sulfuras, SellIn = item.SellIn, Quality = item.Quality });
         }
 
         [Test]
         public void UpdateQuality_BackstagePasses_FullCover()
         {
-            FullCover(Items.BackstagePasses, item =>
+            FullCover(Item.BackstagePasses, item =>
             {
                 var expectedQuality = item.Quality;
                 if (item.Quality < 50)
@@ -82,7 +82,7 @@ namespace GildedRoseKata.Tests
                     expectedQuality = 0;
                 }
 
-                return new Item { Name = Items.BackstagePasses, SellIn = item.SellIn - 1, Quality = expectedQuality };
+                return new Item { Name = Item.BackstagePasses, SellIn = item.SellIn - 1, Quality = expectedQuality };
             });
         }
 
