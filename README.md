@@ -3,7 +3,10 @@
 My solution for of [Gilded Rose Refactoring Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 
 Prerequisites:
- - Nei Framework 4.5.2
+ - Net Framework 4.5.2
+ 
+Build:
+ - ```MSBuild.exe GildedRoseKata.sln``` path to MSBuild.exe should be known
 
 Steps how it was done:
  1. Current implementation of Update method was covered with unit tests. The values for border edges was defined from the specification.
