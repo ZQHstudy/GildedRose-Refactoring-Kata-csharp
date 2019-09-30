@@ -13,11 +13,15 @@ Prerequisites for build from VS:
    
 Build from console:
  1. open console in the solution directory
- 2. ```nuget restore GildedRoseKata.sln``` path to nuget.exe should be system known
- 3. ```MSBuild.exe GildedRoseKata.sln``` path to MSBuild.exe should be system known
+ 2. ```nuget restore GildedRoseKata.sln``` path to ```nuget.exe``` should be system known
+ 3. ```MSBuild.exe GildedRoseKata.sln``` path to ```MSBuild.exe``` should be system known
  
 Build from VS2019:
  1. Open solution in VS and build rebuild solution
+
+Run tests from console (after successfull build)
+ 1. install [nunit-console](https://github.com/nunit/nunit-console/releases/download/v3.10/NUnit.Console-3.10.0.msi)
+ 2. ```nunit3-console.exe .\tests\GildedRoseKata.Tests\GildedRoseKata.Tests.csproj``` path to ```nunit3-console.exe``` should be system known
 
 Run program:
  1. After successfull buil, run ```.\src\GildedRoseKata\bin\Debug\GildedRoseKata.exe```
