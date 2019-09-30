@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
-using NUnit.Framework.Internal;
 
 namespace csharp
 {
@@ -94,7 +93,7 @@ namespace csharp
         [TestCase("foo", 1, 52, ExpectedResult = 51, TestName = "Regular Item(sellIn=1, quality=52): quality more than max quality should degrade normally")]
         [TestCase("foo", 0, 52, ExpectedResult = 50, TestName = "Regular Item(sellIn=0, quality=52): quality more than max quality should degrade normally")]
         [TestCase("foo", 0, 51, ExpectedResult = 49, TestName = "Regular Item(sellIn=0, quality=51): quality more than max quality should degrade normally")]
-        public int UpdateQuality_RegularItem_QualityDegrades(string itemName, int sellIn, int initialQuality)
+        public int UpdateQuality_Item_QualityShouldBeChangedProperly(string itemName, int sellIn, int initialQuality)
         {
             var items = new List<Item> { new Item { Name = itemName, SellIn = sellIn, Quality = initialQuality } };
             var app = new GildedRose(items);
