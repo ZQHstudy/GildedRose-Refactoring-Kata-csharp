@@ -4,10 +4,14 @@ namespace GildedRoseKata
 {
     public class GildedRose
     {
+        /// <summary>
+        /// Itmes for manipulation with. Do not rename as asked Goblin
+        /// </summary>
         IList<Item> Items;
-        public GildedRose(IList<Item> Items)
+
+        public GildedRose(IList<Item> items)
         {
-            this.Items = Items;
+            Items = items;
         }
 
         public void UpdateQuality()

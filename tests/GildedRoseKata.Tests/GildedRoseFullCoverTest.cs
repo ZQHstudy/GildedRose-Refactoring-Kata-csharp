@@ -53,7 +53,7 @@ namespace GildedRoseKata.Tests
         [Test]
         public void UpdateQuality_Sulfuras_QualityShouldBeDecreased()
         {
-            FullCover(Items.Sulfuras, item => new Item { Name = Items.Sulfuras, SellIn = item.SellIn - 1, Quality = item.Quality });
+            FullCover(Items.Sulfuras, item => new Item { Name = Items.Sulfuras, SellIn = item.SellIn, Quality = item.Quality });
         }
 
         [Test]
@@ -87,9 +87,9 @@ namespace GildedRoseKata.Tests
 
         private void FullCover(string itemName, Func<Item, Item> calcExpectedItem)
         {
-            for (var sellIn = -100; sellIn > 100; sellIn++)
+            for (var sellIn = -100; sellIn < 100; sellIn++)
             {
-                for (var quality = -100; quality > 100; quality++)
+                for (var quality = -100; quality < 100; quality++)
                 {
                     var initialItem = new Item { Name = itemName, SellIn = sellIn, Quality = quality };
                     var expectedItem = calcExpectedItem(initialItem);
